@@ -365,8 +365,8 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		var temp_max = result.main.temp_max;
 		var name = result.name;
 		var description = result.weather[0].description;
-		document.getElementById('showCebu').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Bohol</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showCebu2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Bohol</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCebu').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Cebu</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCebu2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Cebu</h5><h5 class=card-subtitle-text>"+description+"</h5>";
 		document.getElementById('showCebuIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
 	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=10.2935466&lon=123.8997447&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
@@ -394,11 +394,11 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		var temp_max = result.main.temp_max;
 		var name = result.name;
 		var description = result.weather[0].description;
-		document.getElementById('showCamiguin').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Bohol</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showCamiguin2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Bohol</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showCamiguin2Icon').innerHTML = "<img src=http://openweathermap.org/img/w/"+icon+".png>";
+		document.getElementById('showCamiguin').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Camiguin</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCamiguin2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Camiguin</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCamiguinIcon').innerHTML = "<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
-	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=lat=9.2005972&lon=124.6505463&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=9.2005972&lon=124.6505463&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
 		for (var i = 1; i < 6; i++) {
 			var dt = result.list[i].dt;
 			var time = new Date(dt*1000);
@@ -407,7 +407,36 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 			var min = Math.round(result.list[i].temp.min);
 			var max = Math.round(result.list[i].temp.max);
 			var icon = result.list[i].weather[0].icon;
-			$("#showCebuForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
+			$("#showCamiguinForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
+			 
+		}
+
+
+});
+
+	//7.2541823,125.1708687
+	var davao = "http://api.openweathermap.org/data/2.5/weather?lat=7.2541823&lon=125.1708687&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	$.getJSON(davao, function(result){
+		var icon = result.weather[0].icon;
+		var temp = Math.round(result.main.temp);
+		var temp_min = result.main.temp_min;
+		var temp_max = result.main.temp_max;
+		var name = result.name;
+		var description = result.weather[0].description;
+		document.getElementById('showDavao').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Davao</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showDavao2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Davao</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showDavaoIcon').innerHTML = "<img src=http://openweathermap.org/img/w/"+icon+".png>";
+	});	
+	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=7.2541823&lon=125.1708687&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+		for (var i = 1; i < 6; i++) {
+			var dt = result.list[i].dt;
+			var time = new Date(dt*1000);
+			var date = new Date(time);
+			var daily = date.customFormat( "#DDD#");
+			var min = Math.round(result.list[i].temp.min);
+			var max = Math.round(result.list[i].temp.max);
+			var icon = result.list[i].weather[0].icon;
+			$("#showDavaoForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
 			 
 		}
 

@@ -153,8 +153,67 @@ padding: 0;
 
 
 		<div data-role="page" class="nd2-no-menu-swipe" id="homepage">
-			<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -220,7 +279,67 @@ padding: 0;
 		</div>
 
 		<div data-role="page" id="currentLocation">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
@@ -241,8 +360,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="tourist">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -433,58 +611,58 @@ padding: 0;
 
 				<div class="row">
 					<div class="col-xs-6">
+						<a href="#cebu">
 						<div class="box">
 							<div class="nd2-card">
 								<div class="card-media">
-									<img src="img/examples/puertogalera.jpg">
+									<img src="img/examples/cebu.jpg">
 									<div class='card-media-overlay'>
 										<div class="card-title has-supporting-text">
-											<h3 class="card-primary-title">27 &deg;</h3>
-											<h5 class="card-subtitle">Cebu</h5>
-											<h5 class="card-subtitle-text">Partly Cloudy</h5>
+											<div id="showCebu"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						</a>
 					</div>
 
 					<div class="col-xs-6">
+						<a href="#camiguin">
 						<div class="box">
 							<div class="nd2-card">
 								<div class="card-media">
-									<img src="img/examples/taal.jpg">
+									<img src="img/examples/camiguin.jpg">
 									<div class='card-media-overlay'>
 										<div class="card-title has-supporting-text">
-											<h3 class="card-primary-title">27 &deg;</h3>
-											<h5 class="card-subtitle">Camiguin</h5>
-											<h5 class="card-subtitle-text">Partly Cloudy</h5>
+											<div id="showCamiguin"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-6">
+							<a href="#davao">
 						<div class="box">
 							<div class="nd2-card">
 								<div class="card-media">
-									<img src="img/examples/puertogalera.jpg">
+									<img src="img/examples/davao.jpg">
 									<div class='card-media-overlay'>
 										<div class="card-title has-supporting-text">
-											<h3 class="card-primary-title">27 &deg;</h3>
-											<h5 class="card-subtitle">Davao</h5>
-											<h5 class="card-subtitle-text">Partly Cloudy</h5>
+											<div id="showDavao"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
+						</a>
+						</div>
+					
 					<div class="col-xs-6">
 					</div>
 				</div>
@@ -496,8 +674,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="asian">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->	
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -785,8 +1022,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="vigan">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -835,8 +1131,67 @@ padding: 0;
 			</div> 
 		
 		<div data-role="page" id="baguio">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -865,8 +1220,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="banaue">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -895,8 +1309,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="alinao">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->	
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -925,8 +1398,67 @@ padding: 0;
 		</div> 
 
 		<div data-role="page" id="puertogalera">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -955,8 +1487,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="taal">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -985,8 +1576,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="naga">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1015,8 +1665,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="elnido">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1045,8 +1754,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="boracay">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1075,8 +1843,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="bohol">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1104,11 +1931,337 @@ padding: 0;
 			</div> 
 		</div> 
 	
+		<div data-role="page" id="cebu">
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/cebu.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showCebu2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showCebuIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showCebuForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="camiguin">
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/camiguin.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showCamiguin2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showCamiguinIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showCamiguinForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="davao">
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/davao.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showDavao2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showDavaoIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showDavaoForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
 	
 	<!--ASIAN CITIES   -->
 		<div data-role="page" id="tokyo">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->	
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1132,8 +2285,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="seoul">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->	
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1157,8 +2369,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="beijing">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1182,8 +2453,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="taipei">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1207,8 +2537,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="hongkong">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1232,8 +2621,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="bangkok">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1257,8 +2705,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="kualalumpur">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1282,8 +2789,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="singapore">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1307,8 +2873,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="jakarta">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1332,8 +2957,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="hanoi">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1357,8 +3041,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="phnompenh">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->	
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1382,8 +3125,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="rangoon">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1407,8 +3209,67 @@ padding: 0;
 		</div> 
 		
 		<div data-role="page" id="hochiminh">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1432,8 +3293,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="brunei">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
@@ -1457,8 +3377,67 @@ padding: 0;
 		</div> 
 	
 		<div data-role="page" id="sydney">
-		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
-			
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+				<hr class="inset">
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Information</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
