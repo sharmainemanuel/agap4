@@ -68,8 +68,10 @@
 	<feature name="http://api.phonegap.com/1.0/media"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
+	<plugin name="cordova-plugin-inappbrowser" spec="1.0.1" source="pgb" />
 	
 	<plugin name="com.simonmacdonald.telephonenumber" spec="1.0.0" source="pgb" />
+	
     
     <platform name="android">
         <allow-intent href="market:*" />
