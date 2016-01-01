@@ -1,0 +1,1562 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Project AGAP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="vendor/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+
+				<style>
+					/* Prevent FOUC */
+					body { opacity: 0; }
+				</style>
+				<style type="text/css">
+				
+				
+				#showDaily {margin-left:12%;}
+.forecast {margin-left:12%;padding-top:5%;}
+.wIcon{margin-left: -8px;}
+
+
+
+#tweecool ul {
+margin: 0;
+padding: 0;
+list-style: none;
+
+}
+.twitter-widget li {
+list-style: none;
+clear: both;
+}
+#tweecool li img, .twitter-widget li .tweets_txt {
+float: left;
+margin-bottom: 10px;
+margin-left: 5px;
+}
+#tweecool li img {
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
+}
+.twitter-widget li .tweets_txt {
+width: 350px;
+margin-left: 10px;
+
+}
+#tweecool li .tweets_txt span {
+font-style: italic;
+color: #666;
+display: block;
+
+}
+
+ul{
+list-style: none;
+margin: 0;
+padding: 0;
+
+
+}
+
+#tweecool ul li{
+	margin: 10px 0;
+	
+}
+
+
+
+.marquee {
+    width: 450px;
+	height: 2em;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 50s linear infinite;
+}
+
+.marquee p{
+	font-size: 2em;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes marquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}
+
+/* Make it pretty */
+.microsoft {
+    padding-left: 1.5em;
+    position: relative;
+    font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+/* ::before was :before before ::before was ::before - kthx */
+.microsoft:before, .microsoft::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: -1em; left: -1em;
+    width: 1em; height: 1em;
+    background-image: url('images/speaker.png');
+}
+
+.microsoft:after, .microsoft::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2em; height: 2em;
+    /*background-image: linear-gradient(90deg, white 70%, rgba(255,255,255,0));*/
+	background-image: url('images/speaker.png');
+	background-size: 100% 100%;
+}
+
+/* Style the links */
+.vanity {
+    color: #333;
+    text-align: center;
+    font: .75em 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.vanity a, .microsoft a {
+    color: #1570A6;
+    transition: color .5s;
+    text-decoration: none;
+}
+
+.vanity a:hover, .microsoft a:hover {
+    color: #F65314;
+}
+
+/* Style toggle button */
+.toggle {
+	display: block;
+    margin: 2em auto;
+}
+  </style>
+				
+				
+
+	</head>
+	<body>
+	
+
+
+		<div data-role="page" class="nd2-no-menu-swipe">
+			<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+
+					<ul data-role="nd2tabs" data-swipe="true">
+						<li data-tab="friends" data-tab-active="true">RSS</li>
+						<li data-tab="work" >SOCIAL</li>
+						
+					</ul>
+			</div>
+
+			<div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+			
+			<div data-role="nd2tab" data-tab="friends" data-swipe="true">
+			
+			<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan"  id="clockbox">
+			</div>
+			<div class="nd2-card card-media-right card-media-small">
+
+
+					
+
+					<div class="card-title has-avatar has-supporting-text">
+					
+						<img class="card-avatar" src="img/alert-circle.png">
+					
+						<h3 class="card-primary-title">Daily Forecast</h3>
+						<h5 class="card-subtitle"><div id="rss-feeds-date" style='text-align: justify;'></div></h5>
+						<h5 class="card-supporting-text"><div id="rss-feeds" style='text-align: justify;'></div></h5>
+					</div>
+			
+			
+			
+			</div>
+			
+			
+			
+			
+			</div>
+			
+			<div data-role="nd2tab" data-tab="work" data-swipe="true">
+				<div >
+				<div class="nd2-card wow fadeIn" id="tweecool" data-wow-delay="0.5s" ></div>
+				</div>
+			</div>
+			
+			
+			
+		<a  href="http://www.facebook.com/sharer/sharer.php?u=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+
+							>
+								<i class='zmdi zmdi-share zmd-2x'></i>
+				</a>	
+			
+			
+		</div>
+		</div>
+
+		<div data-role="page" id="currentLocation">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+
+			<div role="main" class="ui-content" data-inset="false">
+				
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+
+					<div data-wow-delay='0.4s' id="show"></div>
+					<div   data-wow-delay='0.4s' id="showDaily" class="row"></div>
+							
+			</div>
+
+		</div> 
+		</div> 
+		
+		<div data-role="page" id="tourist">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				
+	
+				<div class="row"><!--vigan,baguio-->
+					<div class="col-xs-6">
+					<a href="#vigan">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/vigan.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showVigan"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#baguio">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/baguio.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showBaguio"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#banaue">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/banaue.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showBanaue"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#alinao">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/anilao.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showAlinao"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+				</div>
+
+				<div class="row">
+				<a href="#puertogalera">
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/puertogalera.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showPuertoGalera"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#taal">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/taal.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showTaal"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+
+				<div class="row"><!--NAGA,ELNIDO-->
+					<div class="col-xs-6">
+					<a href="#naga">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/naga.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showNaga"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+						<a href="#elnido">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/elnido.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showElNido"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+
+				<div class="row"><!--Boracay,Bohol-->
+					<div class="col-xs-6">
+					<a href="#boracay">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/boracay.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showBoracay"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#bohol">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/bohol.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showBohol"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/puertogalera.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<h3 class="card-primary-title">27 &deg;</h3>
+											<h5 class="card-subtitle">Cebu</h5>
+											<h5 class="card-subtitle-text">Partly Cloudy</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/taal.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<h3 class="card-primary-title">27 &deg;</h3>
+											<h5 class="card-subtitle">Camiguin</h5>
+											<h5 class="card-subtitle-text">Partly Cloudy</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/puertogalera.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<h3 class="card-primary-title">27 &deg;</h3>
+											<h5 class="card-subtitle">Davao</h5>
+											<h5 class="card-subtitle-text">Partly Cloudy</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-6">
+					</div>
+				</div>
+
+
+		
+			
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="asian">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				
+				<div class="row">
+					<div class="col-xs-6">
+						<a href="#tokyo">
+							<div class="box">
+								<div class="nd2-card">
+									<div class="card-media">
+										<img src="img/examples/japan.jpg">
+										<div class='card-media-overlay'>
+											<div class="card-title has-supporting-text">
+													<div id="showTokyo"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>	
+					</div>
+
+					<div class="col-xs-6">
+						<a href="#seoul">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/seoul.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showSeoul"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#beijing">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/beijing.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showBeijing"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#taipei">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/taipei.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+												<div id="showTaipei"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#hongkong">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/hongkong.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showHongkong"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#bangkok">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/bangkok.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+												<div id="showBangkok"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#kualalumpur">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/kualalumpur.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showKualaLumpur"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#singapore">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/singapore.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+												<div id="showSingapore"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#jakarta">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/jakarta.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showJakarta"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#hanoi">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/hanoi.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+												<div id="showHanoi"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#phnompenh">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/phnompenh.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showPhnompenh"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#rangoon">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/rangoon.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+												<div id="showRangoon"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#hochiminh">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/hochiminh.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showHochiminh"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#brunei">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/brunei.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+												<div id="showBrunei"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-6">
+					<a href="#sydney">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/sydney.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<div id="showSydney"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					</div>
+
+					<div class="col-xs-6">
+					
+					</div>
+				</div>
+			
+			
+			</div> 
+		</div> 
+		
+		<div data-role="page" id="vigan">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				
+				
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/vigan.jpg">
+
+						<div class='card-media-overlay with-background'>
+						<div class="row">
+							<div class="col-xs-8">
+								<div class="card-title has-supporting-text">
+											<div id="showVigan2"></div>
+								</div>
+							</div>
+
+							<div class="col-xs-4">
+										<div id="showViganIcon"></div>
+							
+							</div>
+						</div>
+					
+					</div>
+
+
+				</div>
+			
+
+		
+			
+			</div> 
+			
+					<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+
+					
+					<div   data-wow-delay='0.4s' id="showViganForecast" class="row forecast"></div>
+		
+							
+			</div>
+
+			</div> 
+			</div> 
+		
+		<div data-role="page" id="baguio">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/baguio.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBaguio2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBaguioIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showBaguioForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="banaue">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/banaue.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBanaue2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBanaueIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showBanaueForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="alinao">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/anilao.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showAlinao2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showAlinaoIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showAlinaoForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+
+		<div data-role="page" id="puertogalera">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/puertogalera.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showPuertoGalera2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showPuertoGaleraIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showPuertoGaleraForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="taal">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/taal.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showTaal2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showTaalIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showTaalForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="naga">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/naga.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showNaga2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showNagaIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showNagaForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+		
+		<div data-role="page" id="elnido">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/elnido.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showElNido2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showElNidoIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showElNidoForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="boracay">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/boracay.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBoracay2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBoracayIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showBoracayForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="bohol">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/bohol.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBohol2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBoholIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			
+				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
+					<div   data-wow-delay='0.4s' id="showBoholForecast" class="row forecast"></div>			
+				</div>
+
+			</div> 
+		</div> 
+	
+	
+	<!--ASIAN CITIES -->
+		<div data-role="page" id="tokyo">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/japan.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showTokyo2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showTokyoIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="seoul">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/seoul.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showSeoul2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showSeoulIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="beijing">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/beijing.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBeijing2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBeijingIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="taipei">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/taipei.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showTaipei2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showTaipeiIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="hongkong">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/hongkong.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showHongkong2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showHongkongIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="bangkok">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/bangkok.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBangkok2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBangkokIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+		
+		<div data-role="page" id="kualalumpur">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/kualalumpur.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showKualaLumpur2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showKualaLumpurIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="singapore">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/singapore.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showSingapore2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showSingaporeIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+		
+		<div data-role="page" id="jakarta">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/jakarta.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showJakarta2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showJakartaIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="hanoi">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/hanoi.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showHanoi2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showHanoiIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="phnompenh">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/phnompenh.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showPhnompenh2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showPhnompenhIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+		
+		<div data-role="page" id="rangoon">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/rangoon.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showRangoon2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showRangoonIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+		
+		<div data-role="page" id="hochiminh">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/hochiminh.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showHochiminh2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showHochiminhIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="brunei">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/brunei.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showBrunei2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showBruneiIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="sydney">
+		<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+			
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card">
+					<div class="card-media">
+						<img src="img/examples/sydney.jpg">
+						<div class='card-media-overlay with-background'>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="card-title has-supporting-text"><div id="showSydney2"></div></div>
+								</div>
+								<div class="col-xs-4"><div id="showSydneyIcon"></div></div>
+							</div>					
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="vendor/waves/waves.min.js"></script>
+		<script src="vendor/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="nd2settings.js"></script>
+		<script src="js/tweecool.min.js"></script>
+		<script src="js/jquery.rss.js"></script>
+		<script src="js/moment.min.js"></script>
+		
+		<script src="js/pagasa.js"></script>
+		<script>
+$(document).ready(function() {
+$('#tweecool').tweecool({
+// Your twitter username
+username : 'dost_pagasa',
+// Number of tweets to show
+limit : 5, 
+// Show profile image
+profile_image : true, 
+// Show tweet time
+show_time : true, 
+// Show media
+show_media : true,
+//values: small, large, thumb, medium 
+show_media_size: 'thumb'
+});
+
+$.mobile.loading("hide");
+});
+
+$("#rss-feeds-date").rss("https://kidlat.pagasa.dost.gov.ph/prsdcodes/rss/forecast/forecast.xml", {
+dateFormat: 'MMM Do YY, h:mm a',
+    entryTemplate: '{date}',
+	effect: 'slideFastSynced',
+        }).show();
+
+$("#rss-feeds").rss("https://kidlat.pagasa.dost.gov.ph/prsdcodes/rss/forecast/forecast.xml", {
+    entryTemplate: '{bodyPlain}',
+	effect: 'slideFastSynced',
+        }).show();
+</script>
+
+
+<script>
+tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+if(nyear<1000) nyear+=1900;
+var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+if(nhour==0){ap=" AM";nhour=12;}
+else if(nhour<12){ap=" AM";}
+else if(nhour==12){ap=" PM";}
+else if(nhour>12){ap=" PM";nhour-=12;}
+
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+//document.getElementById('clockbox').innerHTML=" "+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+document.getElementById('clockbox').innerHTML="<div class='card-media'><img src='img/clock.png' /></div>"+"<div class='card-title has-supporting-text'><span>PHILIPPINE STANDARD TIME</span><h3 class='card-primary-title'>"+nhour+":"+nmin+":"+nsec+ap+"</h3>"+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"</div>";
+}
+
+window.onload=function(){
+GetClock();
+setInterval(GetClock,1000);
+}
+
+</script>
+
+	</body>
+</html>
