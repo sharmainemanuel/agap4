@@ -523,7 +523,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		var name = result.name;
 		var description = result.weather[0].description;
 		document.getElementById('showBangkok').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Bangkok</h5><h5 class=card-subtitle-text>Thailand</h5>";
-		document.getElementById('showBangkok2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Taipei</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showBangkok2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Bangkok</h5><h5 class=card-subtitle-text>"+description+"</h5>";
 		document.getElementById('showBangkokIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
 	
@@ -551,7 +551,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		var name = result.name;
 		var description = result.weather[0].description;
 		document.getElementById('showKualaLumpur').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Kuala Lumpur</h5><h5 class=card-subtitle-text>Malaysia</h5>";
-		document.getElementById('showKualaLumpur2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>KualaLumpur</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showKualaLumpur2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Kuala Lumpur</h5><h5 class=card-subtitle-text>"+description+"</h5>";
 		document.getElementById('showKualaLumpurIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
 	
