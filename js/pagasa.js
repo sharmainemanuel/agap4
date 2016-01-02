@@ -6,12 +6,15 @@ var x = document.getElementById("demo");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
+		
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
 function showPosition(position) {
+	console.log(position.coords.latitude);
+	console.log(position.coords.longitude);
 $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+ position.coords.latitude +"&lon="+ position.coords.longitude +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
 var id = result.weather[0].id;
 var description = result.weather[0].description;
@@ -42,6 +45,8 @@ var formattedTimeSunset = hoursSunset + ':' + minutesSunset.substr(-2);
 
 document.getElementById('show').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
 document.getElementById('showHome').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
+
+
 });
 
 $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ position.coords.latitude +"&lon="+ position.coords.longitude +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
