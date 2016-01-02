@@ -16,7 +16,8 @@ function error() {
 	$('#imgLoader').hide();
 	$('#imgLoader2').hide();
   };
-
+  
+  
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,error);
