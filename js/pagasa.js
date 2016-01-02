@@ -41,6 +41,7 @@ var formattedTimeSunset = hoursSunset + ':' + minutesSunset.substr(-2);
 
 
 document.getElementById('show').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
+document.getElementById('showHome').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
 });
 
 $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ position.coords.latitude +"&lon="+ position.coords.longitude +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
@@ -53,6 +54,7 @@ $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ position
 			var max = Math.round(result.list[i].temp.max);
 			var icon = result.list[i].weather[0].icon;
 			$("#showDaily").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
+			$("#showDailyHome").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
 			 
 		}
 
