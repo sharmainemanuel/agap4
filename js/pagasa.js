@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	console.log("data load");
 
 	getLocation();
 var x = document.getElementById("demo");
