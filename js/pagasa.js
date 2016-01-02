@@ -2,21 +2,32 @@ $(document).ready(function(){
 	console.log("data load");
 
 	getLocation();
-	var x = document.getElementById("demo");	
+var x = document.getElementById("demo");
+
+function error() {
+	var y =  document.getElementById("demo");
+	var z =  document.getElementById("demo2");
+    y.innerHTML = "Unable to retrieve your location";
+    z.innerHTML = "Unable to retrieve your location";
+	var a = y.innerHTML;
+	var b = z.innerHTML;
+	console.log(a);
+	console.log(b);
+	$('#imgLoader').hide();
+	$('#imgLoader2').hide();
+  };
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-		var b =         navigator.geolocation.getCurrentPosition(showPosition)
-		console.log(b);
+        navigator.geolocation.getCurrentPosition(showPosition,error);
 		
     } else { 
-        x.innerHTML = "Please check your GPS.";
-		var a = x.innerHTML;
-		console.log(a);
-		
+        x.innerHTML = "please check your GPS.";
     }
 }
+
+
+
 
 function showPosition(position) {
 	console.log(position.coords.latitude);
