@@ -30,11 +30,18 @@
     <icon gap:platform="android" gap:qualifier="mdpi" src="img/icon.png" />
     <icon gap:platform="android" gap:qualifier="hdpi" src="img/icon.png" />
     <icon gap:platform="android" gap:qualifier="xhdpi" src="img/icon.png" />
-	<gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="splash/splash-ldpi.jpg" />
+	
+	<preference name="SplashScreen" value="screen" />
+	<preference name="SplashScreenDelay" value="1000" />
+	<splash src="splash/splash-mdpi" density="mdpi"/>
+	<splash src="splash/splash-hdpi" density="hdpi"/>
+	<splash src="splash/splash-xhdpi" density="xhdpi"/>
+	
+	<!--<gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="splash/splash-ldpi.jpg" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="splash/splash-mdpi.jpg" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="splash/splash-hdpi.jpg" />
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="splash/splash-xhdpi.jpg" />
-	<gap:splash gap:platform="android" gap:qualifier="port-xxhdpi" src="splash/splash-xxhdpi.jpg" />
+	<gap:splash gap:platform="android" gap:qualifier="port-xxhdpi" src="splash/splash-xxhdpi.jpg" />-->
     <!--<icon gap:platform="blackberry" src="www/res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/res/icon/blackberry/icon-80.png" />
     <icon gap:platform="ios" height="57" src="www/res/icon/ios/icon-57.png" width="57" />
