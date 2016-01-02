@@ -2,16 +2,18 @@ $(document).ready(function(){
 	console.log("data load");
 
 	getLocation();
-var x = document.getElementById("demo");
-var y = document.getElementById("demo2");
+	var x = document.getElementById("demo");
 
+	console.log(x);
+	
+	
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 		
     } else { 
-        x.innerHTML = "GPS is not on.";
-        y.innerHTML = "GPS is not on.";
+        x.innerHTML = "Please check your GPS.";
+		
     }
 }
 
