@@ -21,9 +21,10 @@ function error() {
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,error);
-		
+			console.log("get location");
     } else { 
         x.innerHTML = "please check your GPS.";
+		console.log("error in getting location");
     }
 }
 
@@ -35,11 +36,13 @@ function showPosition(position) {
 	var lon =position.coords.longitude ;
 	console.log(lat);
 	console.log(lon);
+	console.log("no coords");
 		if (lat == "" || lat == null ){
 		var a = document.getElementById('demo');
 		a.innerHTML = "check gps";
 		var b = a.innerHTML;
 		console.log(b);
+		
 	}
 $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
 var id = result.weather[0].id;
@@ -66,13 +69,15 @@ var hoursSunset = dateSunset.getHours();
 var minutesSunset = "0" + dateSunset.getMinutes();
 var formattedTimeSunset = hoursSunset + ':' + minutesSunset.substr(-2);
 
-
+console.log("status of json");
 
 		setTimeout(function(){
 		$('#imgLoader').fadeOut();
 		$('#imgLoader2').fadeOut();
 		document.getElementById('show').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
 		document.getElementById('showHome').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
+		document.getElementById('demo').innerHTML = "Please check your gps";
+	console.log("timeout");
 		}, 3000);		
 
 
@@ -89,7 +94,7 @@ $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ lat +"&l
 			var icon = result.list[i].weather[0].icon;
 			$("#showDaily").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
 			$("#showDailyHome").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
-			 
+			
 		}
 
 
