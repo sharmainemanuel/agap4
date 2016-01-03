@@ -15,7 +15,7 @@ function error() {
 	console.log(b);
 	$('#imgLoader').hide();
 	$('#imgLoader2').hide();
-  };
+  }
   
   
 function getLocation() {
@@ -31,9 +31,17 @@ function getLocation() {
 
 
 function showPosition(position) {
-	console.log(position.coords.latitude);
-	console.log(position.coords.longitude);
-$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+ position.coords.latitude +"&lon="+ position.coords.longitude +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+	var lat =position.coords.latitude ;
+	var lon =position.coords.longitude ;
+	console.log(lat);
+	console.log(lon);
+		if (lat == "" || lat == null ){
+		var a = document.getElementById('demo');
+		a.innerHTML = "check gps";
+		var b = a.innerHTML;
+		console.log(b);
+	}
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
 var id = result.weather[0].id;
 var description = result.weather[0].description;
 var icon = result.weather[0].icon;
@@ -70,7 +78,7 @@ var formattedTimeSunset = hoursSunset + ':' + minutesSunset.substr(-2);
 
 });
 
-$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ position.coords.latitude +"&lon="+ position.coords.longitude +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
 		for (var i = 1; i < 6; i++) {
 			var dt = result.list[i].dt;
 			var time = new Date(dt*1000);
