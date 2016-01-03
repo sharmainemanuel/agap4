@@ -76,7 +76,7 @@ console.log("status of json");
 		$('#imgLoader2').fadeOut();
 		document.getElementById('show').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
 		document.getElementById('showHome').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
-		document.getElementById('demo').innerHTML = "Please check your gps";
+		//document.getElementById('demo').innerHTML = "Please check your gps";
 	console.log("timeout");
 		}, 3000);		
 
