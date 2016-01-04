@@ -3,7 +3,6 @@ $(document).ready(function(){
 
 	getLocation();
 var x = document.getElementById("demo");
-
 function error() {
 	var y =  document.getElementById("demo");
 	var z =  document.getElementById("demo2");
