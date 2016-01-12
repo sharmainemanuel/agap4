@@ -10,13 +10,142 @@
 		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
 		<link rel="stylesheet" href="vendor/wow/animate.css" />
 		<link rel="stylesheet" href="css/nativedroid2.css" />
-		<link rel="stylesheet" href="css/pagasa.css" />
-		<style>/* Prevent FOUC */body { opacity: 0; }</style>
-		<style type="text/css">
-			#showDaily,#showDailyHome {margin-left:12%;}
-			.forecast {margin-left:12%;padding-top:5%;}
-			.wIcon{margin-left: -8px;}
-		</style>
+
+				<style>
+					/* Prevent FOUC */
+					body { opacity: 0; }
+				</style>
+				<style type="text/css">
+				
+				
+				#showDaily,#showDailyHome {margin-left:12%;}
+.forecast {margin-left:12%;padding-top:5%;}
+.wIcon{margin-left: -8px;}
+
+
+
+#tweecool ul {
+margin: 0;
+padding: 0;
+list-style: none;
+
+}
+.twitter-widget li {
+list-style: none;
+clear: both;
+}
+#tweecool li img, .twitter-widget li .tweets_txt {
+float: left;
+margin-bottom: 10px;
+margin-left: 5px;
+}
+#tweecool li img {
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
+}
+.twitter-widget li .tweets_txt {
+width: 350px;
+margin-left: 10px;
+
+}
+#tweecool li .tweets_txt span {
+font-style: italic;
+color: #666;
+display: block;
+
+}
+
+ul{
+list-style: none;
+margin: 0;
+padding: 0;
+
+
+}
+
+#tweecool ul li{
+	margin: 10px 0;
+	
+}
+
+
+
+.marquee {
+    width: 450px;
+	height: 2em;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 50s linear infinite;
+}
+
+.marquee p{
+	font-size: 2em;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes marquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}
+
+/* Make it pretty */
+.microsoft {
+    padding-left: 1.5em;
+    position: relative;
+    font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+/* ::before was :before before ::before was ::before - kthx */
+.microsoft:before, .microsoft::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: -1em; left: -1em;
+    width: 1em; height: 1em;
+    background-image: url('images/speaker.png');
+}
+
+.microsoft:after, .microsoft::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2em; height: 2em;
+    /*background-image: linear-gradient(90deg, white 70%, rgba(255,255,255,0));*/
+	background-image: url('images/speaker.png');
+	background-size: 100% 100%;
+}
+
+/* Style the links */
+.vanity {
+    color: #333;
+    text-align: center;
+    font: .75em 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.vanity a, .microsoft a {
+    color: #1570A6;
+    transition: color .5s;
+    text-decoration: none;
+}
+
+.vanity a:hover, .microsoft a:hover {
+    color: #F65314;
+}
+
+/* Style toggle button */
+.toggle {
+	display: block;
+    margin: 2em auto;
+}
+  </style>
 
 	</head>
 	<body >
@@ -56,7 +185,7 @@
 						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
 						<li><a href="main.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
 						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html#regionals"  data-ajax='false'>Regional Forecast</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
 						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
 						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
 						
@@ -84,7 +213,7 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
+					<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Satellite and Radar</li>
 				</ul>
 
@@ -96,7 +225,6 @@
 			
 					</ul>
 				</div>
-
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -126,9 +254,7 @@
 			
 			<div data-role="nd2tab" data-tab="friends" data-swipe="true">
 			
-			<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan"  id="clockbox">
-			
-			</div>
+			<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan"  id="clockbox"></div>
 			<div id="demo"> </div>	
 				<img id="imgLoader" src="img/ballRing.gif" style="width:10%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;">
 		
@@ -243,19 +369,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -316,7 +429,7 @@
 					<ul data-role="listview" data-inset="false" data-icon="false">
 						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
 						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
 						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
 						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
 						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
@@ -346,8 +459,7 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-
-				<ul data-role="listview" data-inset="false">
+					<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Satellite and Radar</li>
 				</ul>
 
@@ -372,15 +484,22 @@
 			
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel2" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Daily Forecast</h1>
 			</div>
 
 
 			<div role="main" class="ui-content" data-inset="false">
-				<img id="imgLoader2" src="img/ballRing.gif" style="width:20%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;">
+				<img id="imgLoader2" src="img/ballRing.gif" style="width:10%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;">
 				<div id="demo2"> </div>	
+				<div >
+				</div>
+				<center><div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan" id="clockboxDaily" ></div></center>
+				
+			
+			<div  id="clockboxDaily"> </div>
 				<div class="nd2-card card-media-right card-media-small clr-bg-cyan">
-
+					 
+					 
 					<div data-wow-delay='0.4s' id="show"></div>
 					
 					<div  data-wow-delay='0.4s' id="showDaily" class="row"></div>
@@ -421,11 +540,11 @@
 					<ul data-role="listview" data-inset="false" data-icon="false">
 						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
 						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
 						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#local" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
 						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						<li><a href="main.html#weekly" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
 						
 					</ul>
 				</div>
@@ -451,19 +570,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -476,7 +582,7 @@
 			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel3" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Tourist</h1>
 			</div>
 
 			<div role="main" class="ui-content" data-inset="false">
@@ -757,11 +863,11 @@
 					<ul data-role="listview" data-inset="false" data-icon="false">
 						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
 						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
 						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#local" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
 						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						<li><a href="main.html#weekly" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
 						
 					</ul>
 				</div>
@@ -787,8 +893,7 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-
-				<ul data-role="listview" data-inset="false">
+					<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Satellite and Radar</li>
 				</ul>
 
@@ -812,13 +917,14 @@
 			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel3" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Key Cities</h1>
 			</div>
 
 			<div role="main" class="ui-content" data-inset="false">
 				
-	
-				<div class="row"><!--vigan,baguio-->
+				<center><div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan" id="clockboxKeyCities" ></div></center>
+				
+				<div class="row"><!--cabanatuan,calapan-->
 					<div class="col-xs-6">
 					<a href="#vigan">
 						<div class="box">
@@ -850,6 +956,129 @@
 											<h3 class=card-primary-title>28&deg;</h3>
 										<h5 class=card-subtitle>Calapan</h5>
 										<h5 class=card-subtitle-text>Oriental Mindoro</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+				</div>
+
+				<div class="row"><!--kalayaan,dumaguete-->
+					<div class="col-xs-6">
+					<a href="#vigan">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/kalayaan.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+										<!--	<div id="showVigan"></div>-->
+										<h3 class=card-primary-title>27&deg;</h3>
+										<h5 class=card-subtitle>Kalayaan Group of Island</h5>
+										<h5 class=card-subtitle-text>Palawan</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+
+					<div class="col-xs-6">
+					<a href="#baguio">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/dumaguete.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<h3 class=card-primary-title>28&deg;</h3>
+										<h5 class=card-subtitle>Dumaguete</h5>
+										<h5 class=card-subtitle-text> Negros Oriental</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+				</div>
+
+				<div class="row"><!--kalayaan,dumaguete-->
+					<div class="col-xs-6">
+					<a href="#vigan">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/roxas.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+										<!--	<div id="showVigan"></div>-->
+										<h3 class=card-primary-title>27&deg;</h3>
+										<h5 class=card-subtitle>Roxas</h5>
+										<h5 class=card-subtitle-text>Capiz</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+	
+					<div class="col-xs-6">
+					<a href="#baguio">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/boracay.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<h3 class=card-primary-title>28&deg;</h3>
+										<h5 class=card-subtitle>Boracay Island,Malay</h5>
+										<h5 class=card-subtitle-text> Aklan</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+				</div>
+
+			<div class="row"><!--kalayaan,dumaguete-->
+					<div class="col-xs-6">
+					<a href="#vigan">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/catbalogan.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+										<!--	<div id="showVigan"></div>-->
+										<h3 class=card-primary-title>27&deg;</h3>
+										<h5 class=card-subtitle>Catbalogan</h5>
+										<h5 class=card-subtitle-text>Western Samar</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>	
+					</div>
+	
+					<div class="col-xs-6">
+					<a href="#baguio">
+						<div class="box">
+							<div class="nd2-card">
+								<div class="card-media">
+									<img src="img/examples/boracay.jpg">
+									<div class='card-media-overlay'>
+										<div class="card-title has-supporting-text">
+											<h3 class=card-primary-title>28&deg;</h3>
+										<h5 class=card-subtitle>Tagbiliran</h5>
+										<h5 class=card-subtitle-text> Bohol</h5>
 										</div>
 									</div>
 								</div>
@@ -898,11 +1127,11 @@
 					<ul data-role="listview" data-inset="false" data-icon="false">
 						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
 						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
 						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#local" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
 						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						<li><a href="main.html#weekly" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
 						
 					</ul>
 				</div>
@@ -928,19 +1157,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -953,7 +1169,7 @@
 			<!-- /panel left -->	
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<a href="#leftpanel4" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Asian Cities</h1>
 			</div>
 
 			<div role="main" class="ui-content" data-inset="false">
@@ -1268,11 +1484,11 @@
 					<ul data-role="listview" data-inset="false" data-icon="false">
 						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
 						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
 						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#local" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
 						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						<li><a href="main.html#weekly" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
 						
 					</ul>
 				</div>
@@ -1298,7 +1514,7 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
+					<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Satellite and Radar</li>
 				</ul>
 
@@ -1428,18 +1644,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -1536,18 +1740,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -1648,18 +1840,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -1756,18 +1936,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -1868,18 +2036,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -1976,18 +2132,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -2088,18 +2232,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -2196,18 +2328,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -2308,18 +2428,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -2416,18 +2524,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -2528,18 +2624,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -2636,18 +2720,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -2750,18 +2822,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -2853,18 +2913,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -2960,18 +3008,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -3063,18 +3099,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -3170,18 +3194,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -3273,18 +3285,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -3380,18 +3380,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -3483,18 +3471,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -3590,18 +3566,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -3693,18 +3657,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -3800,18 +3752,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -3903,18 +3843,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -4010,18 +3938,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -4113,18 +4029,6 @@
 					<h3>Social</h3>
 					<ul data-role="listview" data-icon="false">
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
 					</ul>
 				</div>
 				<hr class="inset">
@@ -4220,18 +4124,6 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
 				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
 					<li data-role="list-divider">Information</li>
@@ -4262,15 +4154,11 @@
 					</div>
 				</div> 
 			</div> 
-		</div>
-
-
-
-<!-- Added by Melner -->
-
-		<div data-role="page" id="satellite">
+		</div> 
+	
+		<div data-role="page" id="weekly">
 			<!-- panel left -->
-			<div data-role="panel" id="leftpanel33" data-display="overlay" data-position-fixed="true" >
+			<div data-role="panel" id="leftpanel32" data-display="overlay" data-position-fixed="true" >
 
 				<div class='nd2-sidepanel-profile wow fadeInDown'>
 					<img class='profile-background' src="bg.jpg" />
@@ -4329,16 +4217,96 @@
 						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
+				<hr class="inset">
 				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
+					<li data-role="list-divider">Information</li>
 				</ul>
-
 				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
+					<h3>Nice to Know</h3>
+				
+				</div>
+			</div>
+			<!-- /panel left -->
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel32" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<div class="nd2-card wow fadeIn"  data-wow-delay="0.5s" >
+				<center><h3> Weekly Weather Outlook </h3></center>
+
+				<p><strong>Issued at: 5:00 p.m. 01 January 2016
+				<br>Valid until: 5:00 p.m. 08 January 2016
+				</strong></p><br>
+				
+				<p>Cloudy skies with light to moderate rains and isolated thunderstorms will be experienced over Quirino, Aurora, Quezon, Rizal and Camarines Norte today until tomorrow (January 01 - 02) due to the tail-end of a cold front. Luzon is affected by Northeast Monsoon which will bring cloudy skies with light rains over Cagayan Valley and Cordillera while Metro Manila and the rest of Luzon will be partly cloudy to cloudy with isolated light rains. Visayas and Mindanao will have generally fair weather with chances of isolated rainshowers or thunderstorms.
+				Generally fair weather will prevail over the country with chances of isolated light rains over Luzon and isolated rainshowers or thunderstorms over Visayas and Mindanao by Sunday until the end of forecast outlook (January 03 - 08).
+				This outlook will be updated as soon as significant changes in the weather pattern occur.
+				</p>
+				</div>
+			</div> 
+		</div> 
+	
+		<div data-role="page" id="flood">
+			<!-- panel left -->
+			<div data-role="panel" id="leftpanel32" data-display="overlay" data-position-fixed="true" >
+
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+								<span class='subline'>Tracking the sky</span>
+								<span class='subline'>Helping the country</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider"> Weather</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
+						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
+						
+					</ul>
+				</div>
+				
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Flood</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
 					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
+						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
+						
+					</ul>
+				</div>
+					<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Social</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Social</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
 					</ul>
 				</div>
 				<hr class="inset">
@@ -4352,255 +4320,70 @@
 			</div>
 			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeIn">
-					<a href="#leftpanel33" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<a href="#leftpanel32" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
 			</div>
 
 			<div role="main" class="ui-content" data-inset="false">
-				<div class="nd2-card">
-					<div class="card-media">
-						<img src="http://121.58.193.148/repo/himawari/24hour/irsml/latestHIM_irsml.gif">
-						<p><strong> Weather Situation:</strong> Partly cloudy to cloudy skies with isolated light rains is expected over Metro Manila and the rest of NCR_PRSD forecast areas. Winds will be light to moderate coming from the northeast with slight to moderate seas. </p>
-					</div>
-				</div> 
+				<div class="nd2-card wow fadeIn"  data-wow-delay="0.5s" >
+				<center><h3> Flood Advisory </h3></center>
+
+<select name="select-choice-1" id="select-choice-1b" data-native-menu="false">
+    <option value="javascript">select region</option>
+    <option value="javascript">NCR</option>
+    <option value="javascript">CAR</option>
+    <option value="javascript">ARMM</option>
+    <option value="javascript">Region I</option>
+    <option value="javascript">Region II</option>
+    <option value="javascript">Region III</option>
+    <option value="javascript">Region IV-A</option>
+    <option value="javascript">Region IV-B</option>
+    <option value="javascript">Region V</option>
+    <option value="javascript">Region VI</option>
+    <option value="javascript">Region VII</option>
+    <option value="javascript">Region VIII</option>
+    <option value="javascript">Region IX</option>
+    <option value="javascript">Region X</option>
+    <option value="javascript">Region XI</option>
+    <option value="javascript">Region XII</option>
+    <option value="javascript">Region XIII</option>
+</select>
+
+<strong>GENERAL FLOOD ADVISORY #3</strong><br>
+<p>
+<strong> (Final) For Region 4-A (CALABARZON) </strong><br>
+Issued at 9:00 am, 03 January, 2016 <br>
+<hr>
+<strong>PRESENT WEATHER :</strong><br>
+Northeast monsoon affecting luzon. tail-end of a cold front affecting the eastern section of central luzon.<br>
+ 
+ <br>
+ 
+<strong>FORECAST 24-HR RAINFALL :</strong><br>
+Light rains<br>
+
+<br>
+
+<strong>WATERCOURSES NO LONGER TO BE AFFECTED :</strong><br>
+Quezon - Rivers and its tributaries particularly upper umiray, lower bolbok (lawaya), malaking-ilog, iyam, macalelon, catanauan, silongin lagda, pagsanjan, yabahaan, bigol, guinhalinan, vinas, calauag, pandanan, sta. lucia, lugan malaybalay, maapon, bucal (lalangan), lakayat, tignoan, agos, anibawan (polilio island) and upper kilbay - catabangan.
+<br>
+Laguna - Rivers and its tributaries particularly pagsanjan, pila-sta. cruz, san juan and san cristobal.
+<br>
+Cavite - Rivers and its tributaries particularly laboc (balsahan), cañas, ilangilang and imus.
+<br>
+Rizal - Rivers and its tributaries particularly upper marikina and kaliwa.
+
+<strong> WITH THIS DEVELOPMENT AND UNLESS SIGNIFICANT RAIN OCCURS, THIS IS THE FINAL GENERAL FLOOD ADVISORY FOR THIS EVENT. </strong></p>
+		
+				</div>
 			</div> 
 		</div> 
 	
 		
-		<div data-role="page" id="radar">
-			<!-- panel left -->
-			<div data-role="panel" id="leftpanel34" data-display="overlay" data-position-fixed="true" >
-
-				<div class='nd2-sidepanel-profile wow fadeInDown'>
-					<img class='profile-background' src="bg.jpg" />
-					<div class="row">
-						<div class='col-xs-4 center-xs'>
-							<div class='box'>
-								<img class="profile-thumbnail" src="icon.png" />
-							</div>
-						</div>
-						<div class='col-xs-8'>
-							<div class='box profile-text'>
-								<strong>PAGASA</strong>
-								<span class='subline'>Tracking the sky</span>
-								<span class='subline'>Helping the country</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider"> Weather</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>General Weather</h3>
-					<ul data-role="listview" data-inset="false" data-icon="false">
-						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
-						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
-						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
-						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
-						
-					</ul>
-				</div>
-				
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Flood</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Flood Information</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
-						
-					</ul>
-				</div>
-					<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Social</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Social</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
-				<hr class="inset">
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Information</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Nice to Know</h3>
-				
-				</div>
-			</div>
-			<!-- /panel left -->
-			<div data-role="header" data-position="fixed" class="wow fadeIn">
-					<a href="#leftpanel34" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
-			</div>
-
-			<div role="main" class="ui-content" data-inset="false">
-				<div class="nd2-card">
-					<div class="card-media">
-						<select name="radar" id="radarList" onchange="viewradar()">
-							<!-- <option value=0 selected hidden>[Select a Location]</option> -->
-							<option value=1>Baguio</option>
-							<option value=2>Hinatuan</option>
-							<option value=3>Mactan</option>
-							<option value=4 selected>Subic</option>
-							<option value=5>Tagaytay</option>
-							<option value=6>Tampakan</option>	
-							<option value=7>Virac</option>
-						</select>
-						<div id="myImage"></div>
-						<p><strong> Weather Situation:</strong> Partly cloudy to cloudy skies with isolated light rains is expected over Metro Manila and the rest of NCR_PRSD forecast areas. Winds will be light to moderate coming from the northeast with slight to moderate seas. </p>
-					</div>
-				</div> 
-			</div> 
-		</div>
-
-
-		<div data-role="page" id="damstatus">
-			<!-- panel left -->
-			<div data-role="panel" id="leftpanel35" data-display="overlay" data-position-fixed="true" >
-
-				<div class='nd2-sidepanel-profile wow fadeInDown'>
-					<img class='profile-background' src="bg.jpg" />
-					<div class="row">
-						<div class='col-xs-4 center-xs'>
-							<div class='box'>
-								<img class="profile-thumbnail" src="icon.png" />
-							</div>
-						</div>
-						<div class='col-xs-8'>
-							<div class='box profile-text'>
-								<strong>PAGASA</strong>
-								<span class='subline'>Tracking the sky</span>
-								<span class='subline'>Helping the country</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider"> Weather</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>General Weather</h3>
-					<ul data-role="listview" data-inset="false" data-icon="false">
-						<li><a href="main.html#homepage" data-ajax='false' data-icon="false">Advisories</a></li>
-						<li><a href="main.html#currentLocation" data-ajax='false' data-icon="false">Daily</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false' data-icon="false">Key Cities</a></li>
-						<li><a href="main.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Local Cities</a></li>
-						<li><a href="main.html#asian" data-ajax='false'>Asian Cities</a></li>
-						<li><a href="main.html" class="ui-disabled"  data-ajax='false'>Weekly Outlook</a></li>
-						
-					</ul>
-				</div>
-				
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Flood</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Flood Information</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Advisories</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Bulletin</a></li>
-						<li><a href="main.html" class="ui-disabled" data-ajax='false'>Dam Status</a></li>
-						
-					</ul>
-				</div>
-					<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Social</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Social</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#twitter" data-ajax='false'>Twitter</a></li>						
-					</ul>
-				</div>
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Satellite and Radar</li>
-				</ul>
-
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Radar and Satellite</h3>
-					<ul data-role="listview" data-icon="false">
-						<li><a href="main.html#satellite" data-ajax='false'>Satellite</a></li>
-						<li><a href="main.html#radar"  data-ajax='false'>Radar</a></li>
-			
-					</ul>
-				</div>
-				<hr class="inset">
-				<ul data-role="listview" data-inset="false">
-					<li data-role="list-divider">Information</li>
-				</ul>
-				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
-					<h3>Nice to Know</h3>
-				
-				</div>
-			</div>
-			<!-- /panel left -->
-			<div data-role="header" data-position="fixed" class="wow fadeIn">
-					<a href="#leftpanel35" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
-			</div>
-
-			<div role="main" class="ui-content" data-inset="false">
-				<div class="nd2-card">
-					<div class="card-media">
-						<h3><strong>Status of Monitored Dams</strong></h3>
-						<select name="dams" id="damlist">
-							<option value=0 selected hidden>[Select a Dam]</option>
-							<option value=1>Angat</option>
-							<option value=2>Ipo</option>
-							<option value=3>La Mesa</option>
-							<option value=4>Ambuklao</option>
-							<option value=5>Bingas</option>
-							<option value=6>San Roque</option>	
-							<option value=7>Pantambangan</option>
-							<option value=8>Magat</option>
-							<option value=9>Caliraya</option>		
-						</select>
-
-						<div>
-							<p><strong>Date: </strong>January 4, 2016</p>
-							<p><strong>Time: </strong>6:00am</p>
-							<p><strong>Water Level: </strong>215.15</p>
-							<p><strong>24hr WL Deviation: </strong>0.05</p>
-							<p><strong>FSHWL: </strong>212.0</p>
-							<p><strong>Deviation from FSHWL: </strong>3.15</p>
-							<p><strong>Rule Curve Elevation(m): </strong>206.73</p>
-							<p><strong>Deviation from Rule Curve(m):</strong>8.42</p>
-							<p><strong>Estimated RR:</strong> - </p>
-							<p><strong>Gate Opening (m)</strong> - </p>
-
-						</div>
-		
-					</div>
-				</div> 
-			</div> 
-		</div>
 	
-	<!-- End of Melner -->
+	
+	
+	
 	
 		<script src="cordova.js"></script>
 		<script src="telephonenumber.js"></script>
@@ -4618,9 +4401,6 @@
 		<script src="js/pagasa.js"></script>
 		<script>
 $(document).ready(function() {
-
-	viewradar();
-
 $('#tweecool').tweecool({
 // Your twitter username
 username : 'dost_pagasa',
@@ -4670,7 +4450,12 @@ else if(nhour>12){ap=" PM";nhour-=12;}
 if(nmin<=9) nmin="0"+nmin;
 if(nsec<=9) nsec="0"+nsec;
 
-//document.getElementById('clockbox').innerHTML=" "+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+
+document.getElementById('clockboxDaily').innerHTML="<p>"+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"</p>";
+document.getElementById('clockboxKeyCities').innerHTML="<p>"+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"</p>";
+
+
+
 document.getElementById('clockbox').innerHTML="<div class='card-media'><img src='img/clock.png' /></div>"+"<div class='card-title has-supporting-text'><span>PHILIPPINE STANDARD TIME</span><h3 class='card-primary-title'>"+nhour+":"+nmin+":"+nsec+ap+"</h3>"+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"</div>";
 }
 
@@ -4678,41 +4463,6 @@ window.onload=function(){
 GetClock();
 setInterval(GetClock,1000);
 }
-
-	function viewradar(){
-		var m = document.getElementById('radarList').value;
-		var txturl, imgholder;
-		console.log(m);
-
-		if(m ==  1){txturl  = 'baguio'; imgholder='baguioholder' + Math.floor(Math.random() * (100 - 1) + 1);}
-		if(m ==  2){txturl  = 'hinatuan'; imgholder='hinatuanholder' + Math.floor(Math.random() * (100 - 1) + 1);}
-		if(m ==  3){txturl  = 'mactan'; imgholder='mactanholder' + Math.floor(Math.random() * (100 - 1) + 1);}
-		if(m ==  4){txturl  = 'subic'; imgholder='subicholder' + Math.floor(Math.random() * (100 - 1) + 1);}
-		if(m ==  5){txturl  = 'tagaytay'; imgholder='tagaytayholder' + Math.floor(Math.random() * (100 - 1) + 1);}
-		if(m ==  6){txturl  = 'tampakan'; imgholder='tampakan' + Math.floor(Math.random() * (100 - 1) + 1);}
-		if(m ==  7){txturl  = 'virac'; imgholder='virac' + Math.floor(Math.random() * (100 - 1) + 1);}
-		$('.' + imgholder).attr('src', '');
-		document.getElementById("myImage").innerHTML = "<img class='" + imgholder + "' src='' style='width:100%' alt='Radar'>"
-		$.ajax({url: 'a.php?radarloc=' + txturl, dataType:'JSON', data:{}, type:'POST',
-			success:function(data)
-			{
-				var myAnim, imgCounter, nextImage;
-				console.log(data);
-				console.log("length: " + data.length)
-				console.log("Firstfile: " + data[0])
-				imgCounter = 0;
-
-				myAnim = setInterval(function(){
-					  	$("." + imgholder).attr('src', nextImage = function(){
-					  		if(imgCounter > data.length - 1){
-					  			console.log(imgCounter); imgCounter = 0;
-					  		}
-					  		return "img2/" + txturl + "/" + data[imgCounter++]});}, 1000);
-			},
-			error: function(){alert("ERROR!")}
-		})
-	}
-
 
 </script>
 
