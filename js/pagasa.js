@@ -2,9 +2,6 @@ $(document).ready(function(){
 	console.log("data load");
 
 	getLocation();
-	
-	
-	
 var x = document.getElementById("demo");
 function error() {
 	var y =  document.getElementById("demo");
@@ -70,8 +67,6 @@ var dateSunset = new Date(sunset*1000);
 var hoursSunset = dateSunset.getHours();
 var minutesSunset = "0" + dateSunset.getMinutes();
 var formattedTimeSunset = hoursSunset + ':' + minutesSunset.substr(-2);
-
-
 
 console.log("status of json");
 
