@@ -484,6 +484,58 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 
 
+	//15.5000569,120.910984
+	var cabanatuan = "http://api.openweathermap.org/data/2.5/weather?lat=15.5000569&lon=120.910984&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	$.getJSON(cabanatuan, function(result){
+		var icon = result.weather[0].icon;
+		var temp = Math.round(result.main.temp);
+		var temp_min = result.main.temp_min;
+		var temp_max = result.main.temp_max;
+		var name = result.name;
+		var description = result.weather[0].description;
+		document.getElementById('showCanabatuan').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Cabanatuan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCanabatuan2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Cabanatuan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCanabatuanIcon').innerHTML = "<img src=http://openweathermap.org/img/w/"+icon+".png>";
+	});	
+	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=15.5000569&lon=120.910984&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+		for (var i = 1; i < 6; i++) {
+			var dt = result.list[i].dt;
+			var time = new Date(dt*1000);
+			var date = new Date(time);
+			var daily = date.customFormat( "#DDD#");
+			var min = Math.round(result.list[i].temp.min);
+			var max = Math.round(result.list[i].temp.max);
+			var icon = result.list[i].weather[0].icon;
+			$("#showCabanatuanForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")    
+		}
+});
+//Oriental+Mindoro/@13.391008,121.1228911
+	var mindoro = "http://api.openweathermap.org/data/2.5/weather?lat=13.391008&lon=121.1228911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	$.getJSON(mindoro, function(result){
+		var icon = result.weather[0].icon;
+		var temp = Math.round(result.main.temp);
+		var temp_min = result.main.temp_min;
+		var temp_max = result.main.temp_max;
+		var name = result.name;
+		var description = result.weather[0].description;
+		document.getElementById('showCalapan').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Calapan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCalapan2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Calapan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+		document.getElementById('showCalapanIcon').innerHTML = "<img src=http://openweathermap.org/img/w/"+icon+".png>";
+	});	
+	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=13.391008&lon=121.1228911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+		for (var i = 1; i < 6; i++) {
+			var dt = result.list[i].dt;
+			var time = new Date(dt*1000);
+			var date = new Date(time);
+			var daily = date.customFormat( "#DDD#");
+			var min = Math.round(result.list[i].temp.min);
+			var max = Math.round(result.list[i].temp.max);
+			var icon = result.list[i].weather[0].icon;
+			$("#showMindoroForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")    
+		}
+});
+
+
 
 //ASIAN CITIES //
 
