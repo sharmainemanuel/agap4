@@ -33,135 +33,277 @@ function getLocation() {
 function showPosition(position) {
 	var lat =position.coords.latitude ;
 	var lon =position.coords.longitude ;
-	console.log(lat);
-	console.log(lon);
-	console.log("no coords");
-		if (lat == "" || lat == null ){
-		var a = document.getElementById('demo');
-		a.innerHTML = "check gps";
-		var b = a.innerHTML;
-		console.log(b);
-		
-	}
-$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
-var id = result.weather[0].id;
-var description = result.weather[0].description;
-var icon = result.weather[0].icon;
-var temp = Math.round(result.main.temp);
-var pressure = result.main.pressure;
-var humidity = result.main.humidity;
-var wind = result.wind.speed;
-var sunrise = result.sys.sunrise;
-var sunset = result.sys.sunset;
-var temp_min = result.main.temp_min;
-var temp_max = result.main.temp_max;
-var name = 	result.name;
-var lon = 	result.coord.lon;
 
-var dateSunrise = new Date(sunrise*1000);
-var hoursSunrise = dateSunrise.getHours();
-var minutesSunrise = "0" + dateSunrise.getMinutes();
-var formattedTimeSunrise = hoursSunrise + ':' + minutesSunrise.substr(-2);
+	var locationLinkDaily = "http://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+	var locationLinkForecast = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 
-var dateSunset = new Date(sunset*1000);
-var hoursSunset = dateSunset.getHours();
-var minutesSunset = "0" + dateSunset.getMinutes();
-var formattedTimeSunset = hoursSunset + ':' + minutesSunset.substr(-2);
-
-console.log("status of json");
-
-		setTimeout(function(){
-		$('#imgLoader').fadeOut();
-		$('#imgLoader2').fadeOut();
-		document.getElementById('show').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
-		document.getElementById('showHome').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
-		//document.getElementById('demo').innerHTML = "Please check your gps";
-	console.log("timeout");
-		}, 3000);		
-
-
-});
-
-$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ lat +"&lon="+ lon +"&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
-		for (var i = 1; i < 6; i++) {
-			var dt = result.list[i].dt;
-			var time = new Date(dt*1000);
-			var date = new Date(time);
-			var daily = date.customFormat( "#DDD#");
-			var min = Math.round(result.list[i].temp.min);
-			var max = Math.round(result.list[i].temp.max);
-			var icon = result.list[i].weather[0].icon;
-			$("#showDaily").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
-			$("#showDailyHome").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
+$.ajax({
+            url: locationLinkDaily, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				var description = result.weather[0].description;
+				var icon = result.weather[0].icon;
+				var temp = Math.round(result.main.temp);
+				var name = 	result.name;
+				 
+				setTimeout(function(){
+					$('#imgLoader').fadeOut();
+					$('#imgLoader2').fadeOut();
+					
+					document.getElementById('show').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
+					document.getElementById('showHome').innerHTML = "<div class='card-media'><img width='100%' src='http://openweathermap.org/img/w/"+ icon  + ".png'></div><div class='card-title'><h3 class='card-primary-title'>"+temp + "&#176; <br>"+ name + "</h3>	<h5 class='card-subtitle'>"+description+"</h5><hr></div>"
 			
-		}
+				console.log("timeout");
+				}, 3000);	
+            }           
+        });        
 
-
-});
+$.ajax({
+            url: locationLinkForecast, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				for (var i = 1; i < 6; i++) {
+					var dt = result.list[i].dt;
+					var time = new Date(dt*1000);
+					var date = new Date(time);
+					var daily = date.customFormat( "#DDD#");
+					var min = Math.round(result.list[i].temp.min);
+					var max = Math.round(result.list[i].temp.max);
+					var icon = result.list[i].weather[0].icon;
+					$("#showDaily").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
+					$("#showDailyHome").append("<div class='text-center col-md-2 col-xs-2'><div class='classWithPad'>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
+					
+				}		
+            }           
+        });        
 }
 
+
+//KEYCITIES //
+var cabanatuan = "http://api.openweathermap.org/data/2.5/weather?lat=15.5000569&lon=120.910984&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";	
+var cabanatuan2 = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=15.5000569&lon=120.910984&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+$.ajax({
+            url: cabanatuan, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				var description = result.weather[0].description;
+				var icon = result.weather[0].icon;
+				var temp = Math.round(result.main.temp);
+				var name = 	result.name;
+				 
+				setTimeout(function(){
+					$('#imgLoader').fadeOut();
+					document.getElementById('showCanabatuan').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Cabanatuan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+					document.getElementById('showCanabatuan2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Cabanatuan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+					document.getElementById('showCabanatuanIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
+				console.log("timeout");
+				}, 3000);	
+            }           
+        });        		
+$.ajax({
+            url: cabanatuan2, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				for (var i = 1; i < 6; i++) {
+					var dt = result.list[i].dt;
+					var time = new Date(dt*1000);
+					var date = new Date(time);
+					var daily = date.customFormat( "#DDD#");
+					var min = Math.round(result.list[i].temp.min);
+					var max = Math.round(result.list[i].temp.max);
+					var icon = result.list[i].weather[0].icon;
+					var icon = result.list[i].weather[0].icon;
+					$("#showCanabatuanForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>");
+					
+				}		
+            }           
+        });        
+
+	//KEYCITIES //
+var calapan = "http://api.openweathermap.org/data/2.5/weather?lat=15.5000569&lon=121.1228911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";	
+var calapan2 = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=15.5000569&lon=121.1228911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+$.ajax({
+            url: calapan, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				var description = result.weather[0].description;
+				var icon = result.weather[0].icon;
+				var temp = Math.round(result.main.temp);
+				var name = 	result.name;
+				 
+				setTimeout(function(){
+					$('#imgLoader').fadeOut();
+					document.getElementById('showCalapan').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Calapan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+					document.getElementById('showCalapan2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>Calapan</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+					document.getElementById('showCalapanIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
+				console.log("timeout");
+				}, 3000);	
+            }           
+        });        		
+$.ajax({
+            url: calapan2, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				for (var i = 1; i < 6; i++) {
+					var dt = result.list[i].dt;
+					var time = new Date(dt*1000);
+					var date = new Date(time);
+					var daily = date.customFormat( "#DDD#");
+					var min = Math.round(result.list[i].temp.min);
+					var max = Math.round(result.list[i].temp.max);
+					var icon = result.list[i].weather[0].icon;
+					var icon = result.list[i].weather[0].icon;
+					$("#showCalapanForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>");
+					
+				}		
+            }           
+        });        
+
+		
+
+		
 //TOURIST //
+var vigan = "http://api.openweathermap.org/data/2.5/weather?lat=17.570947&lon=120.385587&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+var vigan2 = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=17.570947&lon=120.385587&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+$.ajax({
+            url: vigan, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				var description = result.weather[0].description;
+				var icon = result.weather[0].icon;
+				var temp = Math.round(result.main.temp);
+				var name = 	result.name;
+				 
+				setTimeout(function(){
+					$('#imgLoaderVigan').fadeOut();
+					document.getElementById('showVigan').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+					document.getElementById('showVigan2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+					document.getElementById('showViganIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
+				console.log("timeout");
+				}, 3000);	
+            }           
+        });        		
+$.ajax({
+            url: vigan2, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				for (var i = 1; i < 6; i++) {
+					var dt = result.list[i].dt;
+					var time = new Date(dt*1000);
+					var date = new Date(time);
+					var daily = date.customFormat( "#DDD#");
+					var min = Math.round(result.list[i].temp.min);
+					var max = Math.round(result.list[i].temp.max);
+					var icon = result.list[i].weather[0].icon;
+					var icon = result.list[i].weather[0].icon;
+					$("#showViganForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>");
+					
+				}		
+            }           
+        });        
 
-var vigan = "http://api.openweathermap.org/data/2.5/weather?lat=17.570947&lon=120.385587&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
-	$.getJSON(vigan, function(result){
-		var icon = result.weather[0].icon;
-		var temp = Math.round(result.main.temp);
-		var temp_min = result.main.temp_min;
-		var temp_max = result.main.temp_max;
-		var name = result.name;
-		var description = result.weather[0].description;
-		document.getElementById('showVigan').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showVigan2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showViganIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
-	});	
-	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=17.570947&lon=120.385587&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
+		
+		
+var baguio = "http://api.openweathermap.org/data/2.5/weather?lat=16.400625&lon=120.593924&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+var baguio2 = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=16.400625&lon=120.593924&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+$.ajax({
+            url: baguio, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				var description = result.weather[0].description;
+				var icon = result.weather[0].icon;
+				var temp = Math.round(result.main.temp);
+				var name = 	result.name;
+				 
+				document.getElementById('showBaguio').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 		class=card-subtitle-text>"+description+"</h5>";
+				document.getElementById('showBaguio2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+				document.getElementById('showBaguioIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";	
+            }           
+        });        		
+$.ajax({
+            url: baguio2, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				for (var i = 1; i < 6; i++) {
+					var dt = result.list[i].dt;
+					var time = new Date(dt*1000);
+					var date = new Date(time);
+					var daily = date.customFormat( "#DDD#");
+					var min = Math.round(result.list[i].temp.min);
+					var max = Math.round(result.list[i].temp.max);
+					var icon = result.list[i].weather[0].icon;
+					var icon = result.list[i].weather[0].icon;
+					$("#showBaguioForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")  ;	 
+					
+				}		
+            }           
+        });        
 
-		for (var i = 1; i <6; i++) {
-			var dt = result.list[i].dt;
-			var time = new Date(dt*1000);
-			var date = new Date(time);
-			var daily = date.customFormat( "#DDD#");
-			var min = Math.round(result.list[i].temp.min);
-			var max = Math.round(result.list[i].temp.max);
-			var icon = result.list[i].weather[0].icon;
-			$("#showViganForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
-			 
-		}
+		
+				
+var banaue = "http://api.openweathermap.org/data/2.5/weather?lat=16.924196&lon=121.055957&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+var banaue2 = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=16.924196&lon=121.055957&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
+$.ajax({
+            url: banaue, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				var description = result.weather[0].description;
+				var icon = result.weather[0].icon;
+				var temp = Math.round(result.main.temp);
+				var name = 	result.name;
+				 
+					document.getElementById('showBanaue').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+			document.getElementById('showBanaue2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
+			document.getElementById('showBanaueIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
+            }           
+        });        		
+$.ajax({
+            url: banaue2, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(result){                          
+				for (var i = 1; i < 6; i++) {
+					var dt = result.list[i].dt;
+					var time = new Date(dt*1000);
+					var date = new Date(time);
+					var daily = date.customFormat( "#DDD#");
+					var min = Math.round(result.list[i].temp.min);
+					var max = Math.round(result.list[i].temp.max);
+					var icon = result.list[i].weather[0].icon;
+					var icon = result.list[i].weather[0].icon;
+					$("#showBanaueForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>") ;  
+					
+				}		
+            }           
+        });        
 
-
-});
-
-	var baguio = "http://api.openweathermap.org/data/2.5/weather?lat=16.400625&lon=120.593924&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
-	$.getJSON(baguio, function(result){
-		var icon = result.weather[0].icon;
-		var temp = Math.round(result.main.temp);
-		var temp_min = result.main.temp_min;
-		var temp_max = result.main.temp_max;
-		var name = result.name;
-		var description = result.weather[0].description;
-		document.getElementById('showBaguio').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showBaguio2').innerHTML = "<h3 class=card-primary-title>"+temp + " &deg;</h3><h5 class=card-subtitle>"+name+"</h5><h5 class=card-subtitle-text>"+description+"</h5>";
-		document.getElementById('showBaguioIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
-	});	
-	$.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?lat=16.400625&lon=120.593924&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric", function(result){
-
-		for (var i = 1; i < 6; i++) {
-			var dt = result.list[i].dt;
-			var time = new Date(dt*1000);
-			var date = new Date(time);
-			var daily = date.customFormat( "#DDD#");
-			var min = Math.round(result.list[i].temp.min);
-			var max = Math.round(result.list[i].temp.max);
-			var icon = result.list[i].weather[0].icon;
-			$("#showBaguioForecast").append("<div class='text-center col-md-2 col-xs-2'><div class=''>"+daily+"<br><img width='100%' class='wIcon' src='http://openweathermap.org/img/w/"+ icon  + ".png'><strong>"+max + "&deg; </strong><br>" +min+"&deg;<br><br></div></div>")   
-			 
-		}
-
-
-});
-
+		
+	/*	
 	
-var banaue = "http://api.openweathermap.org/data/2.5/weather?lat=16.924196&lon=121.055957&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+var banaue = "http://api.openweathermap.org/data/2.5/weather?lat=16.924196&lon=121.055957&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(banaue, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -190,7 +332,7 @@ var banaue = "http://api.openweathermap.org/data/2.5/weather?lat=16.924196&lon=1
 
 });
 
-var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=120.927625&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=120.927625&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(anilao, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -219,7 +361,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 
 });
 
-	var puertogalera = "http://api.openweathermap.org/data/2.5/weather?lat=13.467163&lon=120.957982&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var puertogalera = "http://api.openweathermap.org/data/2.5/weather?lat=13.467163&lon=120.957982&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(puertogalera, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -248,7 +390,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 
 });
 
-	var taal = "http://api.openweathermap.org/data/2.5/weather?lat=14.012419&lon=120.997905&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var taal = "http://api.openweathermap.org/data/2.5/weather?lat=14.012419&lon=120.997905&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(taal, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -277,7 +419,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 
 });
 
-	var naga = "http://api.openweathermap.org/data/2.5/weather?lat=13.623620&lon=123.189093&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var naga = "http://api.openweathermap.org/data/2.5/weather?lat=13.623620&lon=123.189093&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(naga, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -307,7 +449,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 
 	//11.2056626,119.1259039
-	var elnido = "http://api.openweathermap.org/data/2.5/weather?lat=11.2056626&lon=119.1259039&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var elnido = "http://api.openweathermap.org/data/2.5/weather?lat=11.2056626&lon=119.1259039&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(elnido, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -337,7 +479,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 
 	//11.9693649,121.8922093
-	var boracay = "http://api.openweathermap.org/data/2.5/weather?lat=11.9693649&lon=121.8922093&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var boracay = "http://api.openweathermap.org/data/2.5/weather?lat=11.9693649&lon=121.8922093&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(boracay, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -367,7 +509,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 
 	//9.907642,124.092293
-	var bohol = "http://api.openweathermap.org/data/2.5/weather?lat=9.907642&lon=124.092293&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var bohol = "http://api.openweathermap.org/data/2.5/weather?lat=9.907642&lon=124.092293&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(bohol, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -397,7 +539,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 	
 	//10.2935466,123.8997447
-	var cebu = "http://api.openweathermap.org/data/2.5/weather?lat=10.2935466&lon=123.8997447&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var cebu = "http://api.openweathermap.org/data/2.5/weather?lat=10.2935466&lon=123.8997447&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(cebu, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -426,7 +568,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 
 	//9.2005972,124.6505463
-	var camiguin = "http://api.openweathermap.org/data/2.5/weather?lat=9.2005972&lon=124.6505463&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var camiguin = "http://api.openweathermap.org/data/2.5/weather?lat=9.2005972&lon=124.6505463&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(camiguin, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -455,7 +597,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 });
 
 	//7.2541823,125.1708687
-	var davao = "http://api.openweathermap.org/data/2.5/weather?lat=7.2541823&lon=125.1708687&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var davao = "http://api.openweathermap.org/data/2.5/weather?lat=7.2541823&lon=125.1708687&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(davao, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -485,7 +627,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 
 
 	//15.5000569,120.910984
-	var cabanatuan = "http://api.openweathermap.org/data/2.5/weather?lat=15.5000569&lon=120.910984&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var cabanatuan = "http://api.openweathermap.org/data/2.5/weather?lat=15.5000569&lon=120.910984&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(cabanatuan, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -510,7 +652,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		}
 });
 //Oriental+Mindoro/@13.391008,121.1228911
-	var mindoro = "http://api.openweathermap.org/data/2.5/weather?lat=13.391008&lon=121.1228911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var mindoro = "http://api.openweathermap.org/data/2.5/weather?lat=13.391008&lon=121.1228911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(mindoro, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -539,7 +681,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 
 //ASIAN CITIES //
 
-	var tokyo = "http://api.openweathermap.org/data/2.5/weather?lat=35.754258&lon=139.736827&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var tokyo = "http://api.openweathermap.org/data/2.5/weather?lat=35.754258&lon=139.736827&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(tokyo, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -552,7 +694,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		document.getElementById('showTokyoIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
 
-	var seoul = "http://api.openweathermap.org/data/2.5/weather?lat=37.556308&lon=126.990911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var seoul = "http://api.openweathermap.org/data/2.5/weather?lat=37.556308&lon=126.990911&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(seoul, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -565,7 +707,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		document.getElementById('showSeoulIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
 	
-	var beijing = "http://api.openweathermap.org/data/2.5/weather?lat=39.905897&lon=116.409496&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var beijing = "http://api.openweathermap.org/data/2.5/weather?lat=39.905897&lon=116.409496&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(beijing, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -578,7 +720,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 		document.getElementById('showBeijingIcon').innerHTML = "	<img src=http://openweathermap.org/img/w/"+icon+".png>";
 	});	
 	
-	var taipei = "http://api.openweathermap.org/data/2.5/weather?lat=25.040557&lon=121.563922&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var taipei = "http://api.openweathermap.org/data/2.5/weather?lat=25.040557&lon=121.563922&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(taipei, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -592,7 +734,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//22.3580723,113.8408169
-	var hongkong = "http://api.openweathermap.org/data/2.5/weather?lat=22.3580723&lon=113.8408169&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var hongkong = "http://api.openweathermap.org/data/2.5/weather?lat=22.3580723&lon=113.8408169&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(hongkong, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -606,7 +748,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//13.7251097,100.3529042
-	var bangkok = "http://api.openweathermap.org/data/2.5/weather?lat=13.7251097&lon=100.3529042&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var bangkok = "http://api.openweathermap.org/data/2.5/weather?lat=13.7251097&lon=100.3529042&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(bangkok, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -620,7 +762,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//13.7251097,100.3529042
-	var bangkok = "http://api.openweathermap.org/data/2.5/weather?lat=25.040557&lon=121.563922&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var bangkok = "http://api.openweathermap.org/data/2.5/weather?lat=25.040557&lon=121.563922&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(bangkok, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -634,7 +776,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//3.156218,101.712603
-	var kualalumpur = "http://api.openweathermap.org/data/2.5/weather?lat=3.156218&lon=101.712603&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var kualalumpur = "http://api.openweathermap.org/data/2.5/weather?lat=3.156218&lon=101.712603&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(kualalumpur, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -648,7 +790,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//1.3150701,103.7069295
-	var singapore = "http://api.openweathermap.org/data/2.5/weather?lat=1.3150701&lon=103.7069295&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var singapore = "http://api.openweathermap.org/data/2.5/weather?lat=1.3150701&lon=103.7069295&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(singapore, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -662,7 +804,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//-6.0486964,105.7452916
-	var jakarta = "http://api.openweathermap.org/data/2.5/weather?lat=-6.0486964&lon=105.7452916&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var jakarta = "http://api.openweathermap.org/data/2.5/weather?lat=-6.0486964&lon=105.7452916&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(jakarta, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -676,7 +818,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//21.0227732,105.801944
-	var hanoi = "http://api.openweathermap.org/data/2.5/weather?lat=21.0227732&lon=105.801944&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var hanoi = "http://api.openweathermap.org/data/2.5/weather?lat=21.0227732&lon=105.801944&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(hanoi, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -690,7 +832,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//11.5796669,104.7500973
-	var phnompenh = "http://api.openweathermap.org/data/2.5/weather?lat=11.5796669&lon=104.7500973&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var phnompenh = "http://api.openweathermap.org/data/2.5/weather?lat=11.5796669&lon=104.7500973&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(phnompenh, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -704,7 +846,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//16.9041018,96.0294206
-	var rangoon = "http://api.openweathermap.org/data/2.5/weather?lat=16.9041018&lon=96.0294206&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var rangoon = "http://api.openweathermap.org/data/2.5/weather?lat=16.9041018&lon=96.0294206&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(rangoon, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -718,7 +860,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//10.769,106.4141593
-	var hochiminh = "http://api.openweathermap.org/data/2.5/weather?lat=10.769&lon=106.4141593&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var hochiminh = "http://api.openweathermap.org/data/2.5/weather?lat=10.769&lon=106.4141593&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(hochiminh, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -732,7 +874,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 		
 	//4.5254026,114.1590944
-	var brunei = "http://api.openweathermap.org/data/2.5/weather?lat=4.5254026&lon=114.1590944&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var brunei = "http://api.openweathermap.org/data/2.5/weather?lat=4.5254026&lon=114.1590944&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(brunei, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -746,7 +888,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 	});	
 	
 	//-33.7945147,150.3619536
-	var sydney = "http://api.openweathermap.org/data/2.5/weather?lat=-33.7945147&lon=150.3619536&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric"
+	var sydney = "http://api.openweathermap.org/data/2.5/weather?lat=-33.7945147&lon=150.3619536&APPID=f409ef9bff7e0ac91c9f4074b3945a26&units=metric";
 	$.getJSON(sydney, function(result){
 		var icon = result.weather[0].icon;
 		var temp = Math.round(result.main.temp);
@@ -766,8 +908,7 @@ var anilao = "http://api.openweathermap.org/data/2.5/weather?lat=13.760094&lon=1
 
 
 
-
-
+*/
 
 
 
